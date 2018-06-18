@@ -27,6 +27,7 @@ call minpac#add('rbgrouleff/bclose.vim')
 call minpac#add('posva/vim-vue')
 call minpac#add('easymotion/vim-easymotion')
 call minpac#add('prettier/vim-prettier')
+call minpac#add('Valloric/YouCompleteMe')
 
 call minpac#add('terryma/vim-multiple-cursors')
 " ColorScheme
@@ -35,6 +36,7 @@ call minpac#add('morhetz/gruvbox')
 call minpac#add('gagoar/StripWhiteSpaces')
 call minpac#add('sedm0784/vim-you-autocorrect')
 call minpac#add('thinca/vim-quickrun')
+call minpac#add('christoomey/vim-tmux-navigator')
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
@@ -192,4 +194,15 @@ let g:prettier#config#prose_wrap = 'preserve'
 
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" }}}
+" youcompleteme ultisnips {{{
+" make ycm compatible with ultisnips (using supertab)
+let g:ycm_key_list_select_completion = ['<c-n>', '<down>']
+let g:ycm_key_list_previous_completion = ['<c-j>', '<up>']
+let g:supertabdefaultcompletiontype = '<c-n>'
+
+" better key bindings for ultisnipsexpandtrigger
+let g:ultisnipsexpandtrigger = "<tab>"
+let g:ultisnipsjumpforwardtrigger = "<tab>"
+let g:ultisnipsjumpbackwardtrigger = "<s-tab>"
 " }}}
