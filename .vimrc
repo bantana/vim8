@@ -1,3 +1,15 @@
+" function {{{
+function! EnsureDirExits (dir)
+  if !isdirectory(a:dir)
+    if exists("*mkdir")
+      call mkdir(a:dir, 'p')
+      echo "Created directory: " . a:dir
+    else
+      echo "please create directory: " . a:dir
+    endif
+  endif
+endfunction
+" }}}
 " mkdir -p $VIMCONFIG/pack/minpac/opt
 " cd $VIMCONFIG/pack/minpac/opt
 " git clone https://github.com/k-takata/minpac.git ~/.vim/pack/minpac/opt/minpac
@@ -39,6 +51,7 @@ call minpac#add('thinca/vim-quickrun')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('corylanou/vim-present')
 call minpac#add('dart-lang/dart-vim-plugin')
+call minpac#add('simnalamburt/vim-mundo')
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
@@ -208,3 +221,15 @@ let g:ultisnipsexpandtrigger = "<tab>"
 let g:ultisnipsjumpforwardtrigger = "<tab>"
 let g:ultisnipsjumpbackwardtrigger = "<s-tab>"
 " }}}
+" vim-mundo ------- {{{
+set undofile
+" check 'vim-mundo directory'
+call EnsureDirExits($HOME . '/.vim/tmp/undo')
+set undodir=~/.vim/tmp/undo
+nnoremap <leader>u :MundoToggle<cr>
+let g:mundo_debug = 1
+let g:mundo_preview_bottom = 1
+let g:mundo_tree_statusline = "mundo"
+let g:mundo_preview_statusline = "mundo preview"
+" }}}
+
