@@ -38,6 +38,7 @@ call minpac#add('sedm0784/vim-you-autocorrect')
 call minpac#add('thinca/vim-quickrun')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('corylanou/vim-present')
+call minpac#add('dart-lang/dart-vim-plugin')
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
