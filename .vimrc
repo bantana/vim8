@@ -52,6 +52,8 @@ call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('corylanou/vim-present')
 call minpac#add('dart-lang/dart-vim-plugin')
 call minpac#add('simnalamburt/vim-mundo')
+call minpac#add('rust-lang/rust.vim')
+call minpac#add('travisjeffery/vim-auto-mkdir')
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
@@ -133,10 +135,6 @@ if has('nvim')
 else
   tnoremap <ESC> <C-\><C-n>
 endif
-" }}}
-" ale {{{
-let g:ale_sign_column_always=1
-let g:ale_fix_on_save = 1
 " }}}
 " Nerdtree {{{
 map <leader>n :NERDTreeToggle<cr>
