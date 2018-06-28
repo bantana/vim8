@@ -54,6 +54,8 @@ call minpac#add('dart-lang/dart-vim-plugin')
 call minpac#add('simnalamburt/vim-mundo')
 call minpac#add('rust-lang/rust.vim')
 call minpac#add('travisjeffery/vim-auto-mkdir')
+call minpac#add('majutsushi/tagbar')
+" call minpac#add('sheerun/vim-polyglot')
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
@@ -127,6 +129,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>/ :Ack<Space>
 nnoremap <leader>s :ALENextWrap<CR>
+nnoremap <leader>m :TagbarToggle<CR>
 
 " terminail
 if has('nvim')
@@ -230,4 +233,6 @@ let g:mundo_preview_bottom = 1
 let g:mundo_tree_statusline = "mundo"
 let g:mundo_preview_statusline = "mundo preview"
 " }}}
-
+" Dart-vim-plugin {{{
+let dart_format_on_save = 1
+" }}}
