@@ -55,6 +55,7 @@ call minpac#add('simnalamburt/vim-mundo')
 call minpac#add('rust-lang/rust.vim')
 call minpac#add('travisjeffery/vim-auto-mkdir')
 call minpac#add('majutsushi/tagbar')
+call minpac#add('francoiscabrol/ranger.vim')
 " call minpac#add('sheerun/vim-polyglot')
 
 " Command for minpack {{{
@@ -235,4 +236,18 @@ let g:mundo_preview_statusline = "mundo preview"
 " }}}
 " Dart-vim-plugin {{{
 let dart_format_on_save = 1
+" }}}
+" range {{{
+map <leader>f :Ranger<CR>
+let g:NERDTreeHijackNetrw = 0 "// add this line if you use NERDTree
+let g:ranger_replace_netrw = 1 "// open ranger when vim open a directory
+" }}}
+" ale always {{{
+let g:ale_sign_column_always=1
+let g:ale_fixers = {'javascript': ['prettier_standard']}
+let g:ale_fixers = {'typescript': ['prettier_standard']}
+let g:ale_linters = {'javascript': ['']}
+let g:ale_linters = {'typescript': ['']}
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_standard_use_global=1
 " }}}
