@@ -57,6 +57,10 @@ call minpac#add('travisjeffery/vim-auto-mkdir')
 call minpac#add('majutsushi/tagbar')
 call minpac#add('francoiscabrol/ranger.vim')
 " call minpac#add('sheerun/vim-polyglot')
+call minpac#add('natebosch/vim-lsc')
+call minpac#add('mattn/webapi-vim')
+call minpac#add('mattn/gist-vim')
+
 
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
@@ -128,6 +132,7 @@ let maplocalleader = "\\"
 nnoremap <leader>ev :split ~/.vimrc<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>g :Gist<Space>
 nnoremap <leader>/ :Ack<Space>
 nnoremap <leader>s :ALENextWrap<CR>
 nnoremap <leader>m :TagbarToggle<CR>
@@ -250,4 +255,25 @@ let g:ale_linters = {'javascript': ['']}
 let g:ale_linters = {'typescript': ['']}
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_standard_use_global=1
+" }}}
+" dart {{{
+let g:lsc_server_commands = {'dart': 'dart_language_server'}
+let g:lsc_auto_map = v:true " Use defaults
+" ... or set only the keys you want mapped, defaults are:
+" let g:lsc_auto_map = {
+"     \ 'GoToDefinition': '<C-]>',
+"     \ 'FindReferences': 'gr',
+"     \ 'NextReference': '<C-n>',
+"     \ 'PreviousReference': '<C-p>',
+"     \ 'FindImplementations': 'gI',
+"     \ 'FindCodeActions': 'ga',
+"     \ 'DocumentSymbol': 'go',
+"     \ 'WorkspaceSymbol': 'gS',
+"     \ 'ShowHover': 'K',
+"     \ 'Completion': 'completefunc',
+"     \}
+autocmd CompleteDone * silent! pclose
+" let g:lsc_trace_level = 'verbose'
+"
+let g:lsc_preview_split_direction = 'above'
 " }}}
