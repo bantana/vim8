@@ -118,6 +118,10 @@ set formatoptions=qrn1
 set nu
 set ic
 " }}}
+" copy {{{
+" pbcopy
+set clipboard=unnamed
+" }}}
 " Color Scheme {{{
 set t_Co=256
 set background=dark
@@ -129,13 +133,14 @@ let mapleader = " "
 let maplocalleader = "\\"
 " }}}
 " shortkey {{{
-nnoremap <leader>ev :split ~/.vimrc<CR>
+nnoremap <leader>ev :e ~/.vimrc<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>g :Gist<Space>
 nnoremap <leader>/ :Ack<Space>
 nnoremap <leader>s :ALENextWrap<CR>
 nnoremap <leader>m :TagbarToggle<CR>
+nnoremap <leader>c :Bclose<CR>
 
 " terminail
 if has('nvim')
@@ -276,4 +281,46 @@ autocmd CompleteDone * silent! pclose
 " let g:lsc_trace_level = 'verbose'
 "
 let g:lsc_preview_split_direction = 'above'
+" }}}
+" vim-go ----------------------------------- {{{
+  let g:go_auto_type_info=1
+  let g:go_fmt_autosave = 1
+  let g:go_fmt_command = "goimports"
+  let g:go_goimports_bin = "goimports -tabs=false -tabwidth=4"
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_experimental = 1
+  let g:go_doc_keywordprg_enabled = 1
+  " let g:go_bin_path = expand("~/bin")
+  let g:go_bin_path = $HOME."/bin"
+  let g:go_highlight_array_whitespace_error = 1
+  let g:go_highlight_chan_whitespace_error = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_space_tab_error = 1
+  let g:go_highlight_trailing_whitespace_error = 1
+  let g:go_highlight_operators = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_structs = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_snippet_engine = "ultisnips"
+
+  let g:go_metalinter_autosave = 1
+  "let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+  "let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+  " shortkey
+  " au FileType go nmap <Leader>s <Plug>(go-implements)
+  nnoremap <leader>es :vsplit ~/.vim/pack/minpac/start/vim-snippets/UltiSnips/
+
+  set invsplitbelow
+  let g:go_term_mode = "split"
+  let g:go_term_enabled = 1
+  "let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+  let g:syntastic_go_checkers = ['gometalinter']
+  let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+  let g:go_list_type = "quickfix"
+  nnoremap <leader>m :TagbarToggle<CR>
+" }}}.
+" Error and warning signs. {{{
+" let g:ale_sign_error = '⤫'
+" let g:ale_sign_warning = '⚠'
 " }}}
