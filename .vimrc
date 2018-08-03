@@ -60,6 +60,10 @@ call minpac#add('francoiscabrol/ranger.vim')
 call minpac#add('natebosch/vim-lsc')
 call minpac#add('mattn/webapi-vim')
 call minpac#add('mattn/gist-vim')
+" call minpac#add('prabirshrestha/async.vim')
+" call minpac#add('prabirshrestha/vim-lsp')
+call minpac#add('racer-rust/vim-racer')
+call minpac#add('wannesm/wmgraphviz.vim')
 
 
 " Command for minpack {{{
@@ -321,6 +325,26 @@ let g:lsc_preview_split_direction = 'above'
   nnoremap <leader>m :TagbarToggle<CR>
 " }}}.
 " Error and warning signs. {{{
-" let g:ale_sign_error = '⤫'
-" let g:ale_sign_warning = '⚠'
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+" }}}
+" rust {{{
+let g:LanguageClient_autoStart = 0
+nnoremap <leader>lcs :LanguageClientStart<CR>
+" if you want it to turn on automatically
+" let g:LanguageClient_autoStart = 1
+
+" let g:LanguageClient_serverCommands = {
+"     \ 'python': ['pyls'],
+"     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+"     \ 'javascript': ['javascript-typescript-stdio'],
+"     \ 'go': ['go-langserver'] }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'] }
+
+let g:racer_experimental_completer = 1
+au FileType rust nmap gd <Plug>(rust-def)
+au FileType rust nmap gs <Plug>(rust-def-split)
+au FileType rust nmap gx <Plug>(rust-def-vertical)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 " }}}
