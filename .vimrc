@@ -140,7 +140,8 @@ let maplocalleader = "\\"
 nnoremap <leader>ev :e ~/.vimrc<CR>
 nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>g :Gist<Space>
+nnoremap <leader>lg :Gist<Space>
+nnoremap <leader>gi :GoImport<Space>
 nnoremap <leader>/ :Ack<Space>
 nnoremap <leader>s :ALENextWrap<CR>
 nnoremap <leader>m :TagbarToggle<CR>
@@ -347,4 +348,7 @@ au FileType rust nmap gd <Plug>(rust-def)
 au FileType rust nmap gs <Plug>(rust-def-split)
 au FileType rust nmap gx <Plug>(rust-def-vertical)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+" }}}
+" read shell command result {{{
+set shell=/bin/bash\ -i
 " }}}
