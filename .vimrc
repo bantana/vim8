@@ -17,8 +17,8 @@ packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})
 " call minpac#add('tpope/vim-scriptease', {'type': 'opt'})
-call minpac#add('tpope/vim-unimpaired')
 call minpac#add('w0rp/ale')
+call minpac#add('tpope/vim-unimpaired')
 call minpac#add('junegunn/fzf',{'dir': '~/.fzf', 'do': './install --all'})
 call minpac#add('tpope/vim-dispatch')
 call minpac#add('tpope/vim-surround')
@@ -66,6 +66,10 @@ call minpac#add('racer-rust/vim-racer')
 call minpac#add('wannesm/wmgraphviz.vim')
 
 
+" ack {{{
+" let g:ackpreview = 1
+let g:ack_use_dispatch = 1
+" }}}
 " Command for minpack {{{
 command! PackUpdate call minpac#update()
 command! PackClean call minpac#clean()
@@ -142,7 +146,7 @@ nnoremap <ESC><ESC> :nohlsearch<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>lg :Gist<Space>
 nnoremap <leader>gi :GoImport<Space>
-nnoremap <leader>/ :Ack<Space>
+nnoremap <leader>/ :Ack!<Space>
 nnoremap <leader>s :ALENextWrap<CR>
 nnoremap <leader>m :TagbarToggle<CR>
 nnoremap <leader>c :Bclose<CR>
